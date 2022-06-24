@@ -16,20 +16,21 @@ async function getLoginPage() {
 async function getAuthTokens(username, password) {
     try {
         const loginPage = await getLoginPage()
+
         const loginPageCookie = loginPage.headers['set-cookie'][0]
             .split(';')[0]
             .split('=')[1]
-        const loginPageHtml = loginPage.data
 
-        const dom = cheerio.load(loginPageHtml)
-        const requestVerificationToken = dom(
+        const loginPageHtml = loginPage.data
+        const loginPageDom = cheerio.load(loginPageHtml)
+
+        const requestVerificationToken = loginPageDom(
             'input[name=__RequestVerificationToken]'
         ).val()
 
         const payload = new URLSearchParams()
         payload.append('Login.Username', username)
         payload.append('Login.Password', password)
-        payload.append('Login.RememberMe', 'false')
         payload.append('__RequestVerificationToken', requestVerificationToken)
 
         const res = await axios({
@@ -53,7 +54,6 @@ async function getAuthTokens(username, password) {
             }
         })
 
-        console.log(tokens)
         return tokens
     } catch (error) {
         console.log(error)

@@ -1,0 +1,26 @@
+{
+    "name": "moonpi",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "fmt": "prettier --write ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "prettier": "^2.7.1"
+    },
+    "dependencies": {
+        "axios": "^0.27.2",
+        "cheerio": "^1.0.0-rc.11"
+    },
+    "prettier": {
+        "semi": false,
+        "bracketSpacing": true,
+        "singleQuote": true,
+        "tabWidth": 4
+    }
+}

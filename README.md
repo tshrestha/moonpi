@@ -6,6 +6,6 @@ An experiment to get Moonboard data.
 
 Requires username and password for a Moonboard account.
 
-```javascript
+```bash
 node moonpi.js <moonboard_username> <moonboard_password>
 ```

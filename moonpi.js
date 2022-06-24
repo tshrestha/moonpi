@@ -85,7 +85,7 @@ async function getProblems(authTokens) {
     }
 }
 
-(async () => {
+;(async () => {
     const [, , username, password] = process.argv
     const tokens = await getAuthTokens(`${username}`, `${password}`)
     const problems = await getProblems(tokens)
